@@ -73,26 +73,6 @@ i = Get_row(Csv)
 # print i
 i = i[2:]
 # print i
-'''
-for n in i:
-    if n != 'learning_condition_post-test':
-        print n
-        args,Average_G,Average_C = Data_test(Csv, n, str_Group)
-        # print args
-        f, p1 = ANOVA_test(args)
-        print 'GroupG_Average =',"%.2f" %Average_G,'  GroupC_Average =',"%.2f" %Average_C
-        print 'F =', "%.2f" %f, 'P =', "%.3f" %p1
-        if 0.01 < p1 < 0.05:
-            print n, "显著*"
-        elif p1 < 0.01:
-            print n, "显著**"
-        else:
-            print n, "不显著"
-        print '--------------------------'
-    elif n == 'learning_condition_post-test':
-        pass
-#print "%.2f" % a'''
-
 data = pd.read_csv(Csv)
 print data.head()
 
@@ -115,3 +95,25 @@ for n in i:
         anova_results.to_csv('data_anova.csv', mode='a')
     else:
         print n,'数据方差不齐性。'
+        
+        
+'''
+for n in i:
+    if n != 'learning_condition_post-test':
+        print n
+        args,Average_G,Average_C = Data_test(Csv, n, str_Group)
+        # print args
+        f, p1 = ANOVA_test(args)
+        print 'GroupG_Average =',"%.2f" %Average_G,'  GroupC_Average =',"%.2f" %Average_C
+        print 'F =', "%.2f" %f, 'P =', "%.3f" %p1
+        if 0.01 < p1 < 0.05:
+            print n, "显著*"
+        elif p1 < 0.01:
+            print n, "显著**"
+        else:
+            print n, "不显著"
+        print '--------------------------'
+    elif n == 'learning_condition_post-test':
+        pass
+#print "%.2f" % a
+'''
